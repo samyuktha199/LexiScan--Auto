@@ -1,121 +1,145 @@
-📄 LexiScan Auto – Legal Document Entity Extraction
-📌 Overview
+📄 LexiScan-Auto — Intelligent Legal Document Processing System
 
-LexiScan Auto is an AI-powered system that automatically extracts structured information from legal and offer documents such as PDFs. It uses OCR, NLP, and a custom-trained NER model to identify key entities like parties, dates, monetary amounts, and termination clauses.
+LexiScan-Auto is an end-to-end Intelligent Document Processing (IDP) system designed to extract structured legal information from scanned or digital contract PDFs using OCR + NLP + custom-trained Legal NER models, exposed through a FastAPI service and deployable via Docker.
 
-🎯 Objective
+🚀 Key Features
 
-Manual review of legal documents is time-consuming and error-prone.
-This project automates the process by converting unstructured legal text into structured JSON output for faster analysis.
+📑 PDF Ingestion (Scanned & Digital Contracts)
 
-✨ Key Features
+🔍 OCR-based Text Extraction using Tesseract
 
-PDF upload support
+🧠 Custom Legal Named Entity Recognition (NER)
 
-OCR-based text extraction
+Trained on the CUAD (Contract Understanding Atticus Dataset)
 
-Custom-trained SpaCy NER model
+📊 Structured JSON Output
 
-Extraction of:
-
-Parties (Company / Candidate)
+Parties
 
 Dates
 
-Monetary amounts
+Monetary Amounts
 
-Termination clauses
+⚡ FastAPI-based REST API
 
-REST API using FastAPI
+🐳 Fully Dockerized for Deployment
 
-Dockerized for easy deployment
+🧠 System Architecture
+PDF Document
+     ↓
+OCR (Tesseract)
+     ↓
+Text Preprocessing
+     ↓
+Custom Legal NER (spaCy)
+     ↓
+Post-processing + Regex Extraction
+     ↓
+Structured JSON Output (FastAPI)
 
 🛠️ Tech Stack
 
 Python
 
-FastAPI
+spaCy (Custom-trained Legal NER model)
 
-SpaCy (Custom NER)
+FastAPI (API Layer)
 
 Tesseract OCR
 
 Docker
 
-Uvicorn
+CUAD Dataset
 
-📂 Project Structure (High-Level)
+📂 Project Structure
 LexiScan-Auto/
-│
-├── api/            # FastAPI application
-├── ner/            # NER training & inference
-├── ocr/            # OCR pipeline
-├── pipeline/       # End-to-end pipeline
-├── models/         # Trained NER model
-├── data/           # Training data (CUAD-based)
+├── api/                 # FastAPI application
+├── ocr/                 # OCR pipeline
+├── ner/                 # NER training & inference
+├── pipeline/            # End-to-end pipeline runner
+├── models/              # Trained spaCy NER model
+├── utils/               # Regex-based extractors
+├── data/                # (Ignored) datasets
 ├── Dockerfile
 ├── requirements.txt
-└── README.md
-
-▶️ Run Using Docker (Recommended)
-1️⃣ Build Image
-docker build -t lexiscan-auto .
-
-2️⃣ Run Container
-docker run -p 8000:8000 lexiscan-auto
-
-3️⃣ Open Swagger UI
-http://localhost:8000/docs
+├── README.md
+├── sample_contract.pdf
+├── sample_output.json
 
 ▶️ Run Locally (Without Docker)
+1️⃣ Install dependencies
 pip install -r requirements.txt
+
+2️⃣ Start the API server
 uvicorn api.app:app --reload
 
-
-Then open:
-
+3️⃣ Open Swagger UI
 http://127.0.0.1:8000/docs
 
-🔌 API Usage
+🐳 Run with Docker
+1️⃣ Build Docker image
+docker build -t lexiscan-auto .
+
+2️⃣ Run container
+docker run -p 8000:8000 lexiscan-auto
+
+3️⃣ Access API
+http://localhost:8000/docs
+
+📥 API Usage
 Endpoint
 POST /extract
 
-Input
+Input Options
 
 Upload a PDF file
-OR
 
-Provide raw text
+OR provide raw text
 
-Output (JSON)
+Example Response
 {
   "status": "success",
-  "document_type": "Legal / Offer Document",
   "entities": {
-    "parties": {
-      "company": null,
-      "candidate": "Sharon Hanna A"
-    },
-    "dates": ["04 December 2025", "05-12-2025", "05-03-2026"],
-    "amounts": ["₹6,000"],
-    "termination_clause": [
-      "The company reserves the right to terminate the internship..."
-    ]
+    "PARTY": ["Company A", "Company B"],
+    "DATE": ["12 March 2022"],
+    "AMOUNT": ["$500,000"]
   }
 }
 
-✅ Project Status
+📌 Sample Files
 
-Core functionality implemented
+sample_contract.pdf — Example legal contract
 
-API working successfully
+sample_output.json — Example extracted entities
 
-Dockerized and tested
+🎯 Use Cases
 
-Ready for review and submission
+Legal contract analysis
 
-👤 Contributors
+Compliance automation
 
-Sharon Hanna A
+Due diligence support
 
-Samyuktha Vijayakumar
+Enterprise document intelligence
+
+AI-powered legal assistants
+
+🔮 Future Enhancements
+
+Support for additional legal entity types
+
+Improved OCR accuracy for scanned documents
+
+Database integration
+
+Frontend dashboard
+
+Cloud deployment (AWS/GCP)
+
+## 👩‍💻 Contributors
+
+**Sharon Hanna**  
+B.Tech — Artificial Intelligence & Data Science  
+
+**Samyuktha VIjayakumar**  
+Project Contributor
