@@ -1,0 +1,41 @@
+Named Entity Recognition (NER) Module – LexiScan-Auto
+
+This module extracts structured legal entities from contracts.
+
+Dataset:
+The CUAD (Contract Understanding Atticus Dataset) was used because it contains
+real-world legal contracts with annotated clauses.
+
+Model:
+spaCy NER was trained to detect legal entities such as:
+- DATE
+- PARTY
+- MONEY
+- TERMINATION
+
+Training:
+Annotated text-label pairs were generated from CUAD and used to train a
+custom spaCy NER model.
+
+Post-processing:
+Rule-based validation was applied after model prediction:
+- Dates validated using regex
+- Monetary values checked for currency or numbers
+- Party names validated for non-empty text
+- Termination clauses extracted at sentence level
+
+Output:
+The final output is generated in structured JSON format, making it suitable
+for downstream APIs and frontend consumption.
+
+Limitations:
+Party name extraction depends on sentence structure and may miss complex cases.
+TRANSFER LEARNING DETAILS
+
+This project uses transfer learning through SpaCy’s pre-trained English NLP pipeline.
+Instead of training a model from scratch, an existing SpaCy language model was fine-tuned
+using the CUAD (Contract Understanding Atticus Dataset), which contains real-world legal contracts.
+
+Fine-tuning allows the model to retain general language understanding while adapting to
+legal-domain entities such as DATE, PARTY, MONEY, and TERMINATION.
+This approach improves contextual understanding and accuracy with limited labeled data.
