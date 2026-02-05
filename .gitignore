@@ -28,3 +28,7 @@ data/**
 
 # Docker
 *.tar
+
+LexiScan-Auto_NER_Handoff.zip
+*.zip
+
