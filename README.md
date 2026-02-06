@@ -141,5 +141,16 @@ Cloud deployment (AWS/GCP)
 **Sharon Hanna**  
 B.Tech — Artificial Intelligence & Data Science  
 
-**Samyuktha VIjayakumar**  
+**Samyuktha Vijayakumar**  
 Project Contributor
+
+## 📸 Screenshots
+
+### Swagger UI
+![Swagger UI](screenshots/swagger_ui.png)
+
+### API Response
+![API Response](screenshots/api_response.png)
+
+### Docker Container Running
+![Docker](screenshots/docker_running.png)
