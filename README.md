@@ -144,13 +144,15 @@ B.Tech — Artificial Intelligence & Data Science
 **Samyuktha Vijayakumar**  
 Project Contributor
 
-## 📸 Screenshots
+# LexiScan Auto
 
-### Swagger UI
-![Swagger UI](screenshots/swagger_ui.png)
+## Screenshots
 
 ### API Response
-![API Response](screenshots/api_response.png)
+![API Response](screenshots/api_response.jpeg)
 
-### Docker Container Running
-![Docker](screenshots/docker_running.png)
+### Docker Running
+![Docker Running](screenshots/docker_running.jpeg)
+
+### Swagger UI
+![Swagger UI](screenshots/swagger_ui.jpeg)
