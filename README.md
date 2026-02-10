@@ -167,3 +167,10 @@ Performance metrics include Precision, Recall, and F1-score.
 
 F1-score is used as the primary metric due to entity class imbalance
 and the importance of balanced extraction accuracy in legal documents.
+## 👩‍💻 Contribution – Samyuktha
+
+- Implemented OCR pipeline for PDF → text extraction  
+- Integrated OCR output with trained Legal NER model  
+- Built REST API for document entity extraction  
+- Generated structured JSON output for legal contracts  
+- Assisted in deployment, testing, and documentation  
